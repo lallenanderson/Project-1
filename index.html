@@ -116,7 +116,7 @@
                     <input id="question2" name="question" type="radio" class="with-font" value="sel" />
                     <label for="question2">By Age Group</label>
                 </div>
-                <img id="imageLegend" style='margin-left:60px;    margin-top: 40px;' src='img/maplegend.JPG' />
+                <img id="imageLegend" style='margin-left:60px;    margin-top: 40px;' src='img/maplegend.png' />
             </div>
         </div>
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
@@ -153,7 +153,7 @@
                                 })
                          .removeAttr('class2');
                         });
-                        $("#imageLegend").attr("src","img/maplegend.JPG");
+                        $("#imageLegend").attr("src","img/maplegend.png");
                     }
                     else if (this.id === "question2") {
                         $("#leafletmap g path").each(function (d,i) {
