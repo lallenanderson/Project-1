@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Visualization</title>
+        <title>Jon Snow Recreation</title>
         <meta charset="utf-8">
         <style>
             body {
-                font-size: 12px;
+				background-color:orange;
             }
             text {
                 fill: white;
@@ -14,118 +14,134 @@
                 position: relative;
             }
                 path.maleColor {
-                    fill: #3E09B9;
+                    fill: rgb(239, 138, 98);
                     fill-opacity: .8;
                 }
                 path.femaleColor {
-                    fill: #BD0756;
+                    fill: rgb(103, 169, 207);
                     fill-opacity: .8;
                 }
                   path.ageGroup0 {
-                    fill: rgb(51, 102, 204);
+                    fill: rgb(140, 81, 10);
                     fill-opacity: .8;
                 }
                 path.ageGroup1 {
-                    fill: rgb(220, 57, 18);
+                    fill: rgb(216, 179, 101);
                     fill-opacity: .8;
                 }
                   path.ageGroup2 {
-                    fill: rgb(255, 153, 0);
+                    fill: rgb(246, 232, 195);
                     fill-opacity: .8;
                 }
                 path.ageGroup3 {
-                    fill: 	rgb(16,150,24);
+                    fill: 	rgb(199,234,229);
                     fill-opacity: .8;
                 }
                   path.ageGroup4 {
-                    fill: rgb(153, 0, 153);
+                    fill: rgb(90, 180, 172);
                     fill-opacity: .8;
                 }
                 path.ageGroup5 {
-                    fill: rgb(21, 153, 87);
+                    fill: rgb(1, 102, 94);
                     fill-opacity: .8;
                 }
-                path:hover {
-                    fill: brown;
-                    fill-opacity: .7;
-                }
+
             h1 {
                 color: #111;
                 font-weight: bold;
                 line-height: 1.2;
-                margin: 0;
-                font-size: 4.8rem;
                 letter-spacing: -0.04em;
-                padding-left: 10px;
+                padding-left: 0px;
                 display: block;
                 font-size: 2em;
-                -webkit-margin-before: 0.67em;
-                -webkit-margin-after: 0.67em;
-                -webkit-margin-start: 0px;
-                -webkit-margin-end: 0px;
                 font-family:serif;
             }
+			#completeMap{
+				position:relative;
+			}
             #map {
-                top: 60px;
-                position: absolute;
                 height: 900px;
                 width: 1100px;
-                background-color: white;
-                left: 420px;
-            }
+                background-color: lightgray;
+			}
+			#mapItems{
+				margin-left: 200px;
+				width: 250px;
+				float: left;
+			}
+			#imageLegend{
+				width:70%;  
+				margin-top: 20px;
+			}
             #leftPane {
-                position: absolute;
-                height: 100%;
-                width: 380px;
+				margin-bottom:700px;
             }
             body {
               font-family: serif;
+            }
+			.leaflet-zoom-animated g path {
+                fill: transparent !important;
+            }
+			 .container { 
+                font-size: 18px;
+                font-family:serif;
+				margin-top: 80px;
+            }
+            .chart-container {
+				color: white;
+                padding-left: 60px;
+                margin: 10px;
+				width: 400px;
+            	background-color: black;
+				float: left;
+            }
+			#genderChart{
+				margin-top: 30px;
+			}
+			#ageChart{
+				width: 600px;
+			}
+            #lineChart {
+                top: 30px;
+                left: 20px;
+                width: 400px;
+                margin-right: 30px;
+                padding-left: 25px;
+				float: left;
+				position:relative;
+            }
+            #lineChart text {
+                fill: black;
+            }
+            #lineChart .axis path,
+            #lineChart .axis line {
+                fill: none;
+                stroke: blue;
+                shape-rendering: crispEdges;
+            }
+            #lineChart .line {
+                stroke: blue;
+                stroke-width: 1.5px;
+            }
+            #lineChart .overlay {
+                fill: none;
+                pointer-events: all;
+            }
+            #lineChart .focus circle {
+                fill: none;
+                stroke: purple;
             }
         </style>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
         <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css">
-    </head>
-    <body style="background-color: #f1f1f1;">
-        <div id="leftPane">
-            <div class="holder">
-                <div id="lineChart" style="position:relative; "><p>Distribution of number of deaths over a period of time </p></div>
-                <br/>
-                <div id="genderChart" class="chart-container"><p>Percentage of deaths by Gender </p></div>
-                <br/>
-                <div id="ageChart" class="chart-container"><p>Percentage of deaths by Age Group </p></div>
-            </div>
-        </div>
-        <div id="rightPane" style="left: 150px;">
-            <h1>Project 1: Interactive Maps and Vizualizations using D3.JS    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Documentation <a href="http://sindhu.stylesyou.org/project1/document/index.html">click here</a>  </h1>
-            <div id="map">
-            </div>
-            <div style="display:block;margin-left: 440px;    margin-top: 80px;    position: absolute;">
-                    <input id="question3" name="mapclustercheck" type="checkbox" class="with-font" value="sel">
-                    <label for="question3">Cluster Data</label>
-                </div>
-            <div class="container">
-                <div style="margin-left:70px;margin-top:100px;">Select</div> 
-                <div  style="margin-left:70px;margin-top:20px">
-                    <input checked id="question1" name="question" type="radio" class="with-font" value="sel" />
-                    <label for="question1">By Gender</label>
-                </div>
-                <div style="margin-left:70px">
-                    <input id="question2" name="question" type="radio" class="with-font" value="sel" />
-                    <label for="question2">By Age Group</label>
-                </div>
-                <img id="imageLegend" style='margin-left:60px;    margin-top: 40px;' src='img/maplegend.png' />
-            </div>
-        </div>
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-  crossorigin=""/>
-<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-  crossorigin=""></script>
-       
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+          integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+          crossorigin=""></script>
         <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css" />
@@ -134,6 +150,40 @@
         <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/leaflet.markercluster.js'></script>
         <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.css' rel='stylesheet' />
         <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.Default.css' rel='stylesheet' />
+    </head>
+    <body>
+        <div id="leftPane">
+            <h1>Jon Snow Recreation &nbsp; &nbsp; &nbsp; Documentation <a href="">click here</a> </h1>
+                <div id="lineChart" ><p>Distribution of number of deaths over a period of time </p></div>
+                <br/>
+                <div id="genderChart" class="chart-container"  ><p>Percentage of deaths by Gender </p></div>
+                <br/>
+                <div id="ageChart" class="chart-container" ><p>Percentage of deaths by Age Group </p></div>
+        </div>
+		
+        <div id="completeMap">
+            
+			<div id="mapItems">
+				<div>
+						<input id="question3" name="mapclustercheck" type="checkbox" class="with-font" value="sel">
+						<label for="question3">View Clusters</label>
+				</div>
+				<div class="container">
+					<div style="">Filters</div> 
+					<div>
+						<input checked id="question1" name="question" type="radio" value="sel" />
+						<label for="question1">Gender</label>
+					</div>
+					<div >
+						<input id="question2" name="question" type="radio" value="sel" />
+						<label for="question2">Age Groups</label>
+					</div>
+					<img id="imageLegend" style='' src='img/maplegend.png' />
+				</div>
+			</div>
+			<div id="map">
+            </div>
+		</div>
         <script>
             var boolmapcluster = false;
             var leafletMap;
@@ -194,37 +244,37 @@
                         totalCount--;
                         if (Number(d.gender) === 0) {
                             maleCount += 1;
-                            d.className = "maleColor";
+                            d.genderGroup = "maleColor";
                             maleincidents.push(d);
                         }
                         else if (Number(d.gender) === 1) {
                             femaleCount += 1;
-                            d.className = "femaleColor";
+                            d.genderGroup = "femaleColor";
                             femaleincidents.push(d);
                         }
                         if (Number(d.age) === 0) {
                             ageGroup0 += 1;
-                            d.className1 = "ageGroup0";
+                            d.ageGroup = "ageGroup0";
                         }
                         else if (Number(d.age) === 1) {
                             ageGroup1 += 1;
-                            d.className1 = "ageGroup1";
+                            d.ageGroup = "ageGroup1";
                         }
                         else if (Number(d.age) === 2) {
                             ageGroup2 += 1;
-                            d.className1 = "ageGroup2";
+                            d.ageGroup = "ageGroup2";
                         }
                         else if (Number(d.age) === 3) {
                             ageGroup3 += 1;
-                            d.className1 = "ageGroup3";
+                            d.ageGroup = "ageGroup3";
                         }
                         else if (Number(d.age) === 4) {
                             ageGroup4 += 1;
-                            d.className1 = "ageGroup4";
+                            d.ageGroup = "ageGroup4";
                         }
                         else if (Number(d.age) === 5) {
                             ageGroup5 += 1;
-                            d.className1 = "ageGroup5";
+                            d.ageGroup = "ageGroup5";
                         }
                         if (totalCount === 0) {
                             malePercent = maleCount / (maleCount + femaleCount) * 100;
@@ -246,7 +296,7 @@
                          { name: 'Male', percent: "" + malePercent + "" },
                           { name: 'Female', percent: "" + femalePercent + "" }
                         ];
-                        var w = 300, h = 300;
+                        var w = 350, h = 350;
                         var radius = (w - 2) / 2;
                         var pie = d3.layout.pie()
                         .value(function (d) { return d.percent })
@@ -255,13 +305,12 @@
                             .innerRadius(0)
                             .outerRadius(radius);
                         var color = d3.scale.ordinal()
-                        .range(['#3E09B9', '#BD0756']);
+                        .range(['#ef8a62', '#67a9cf']);
                         var svg = d3.select("#genderChart")
                             .append("svg")
                             .attr({
                                 width: w,
                                 height: h,
-                                class: 'shadow'
                             })
                             .append('g')
                             .attr({
@@ -278,14 +327,14 @@
                                 }
                             })
                             .style({
-                                'fill-opacity': 0.2,
+                                'fill-opacity': 0.3,
                                 stroke: function (d, i) {
                                     return color(i);
                                 },
                                 fill: function (d, i) {
                                     return color(i);
                                 },
-                                'stroke-width': '2px'
+                                'stroke-width': '4px'
                             });
                                         var text = svg.selectAll('text')
                             .data(pie(dataset))
@@ -310,14 +359,14 @@
                     }
                     function piechart(ageGroup0, ageGroup1, ageGroup2, ageGroup3, ageGroup4, ageGroup5) {
                         var dataset = [
-                            { name: '0-10', percent: "" + ageGroup0 + "" },
                             { name: '11-20', percent: "" + ageGroup1 + "" },
                             { name: '21-40', percent: "" + ageGroup2 + "" },
                             { name: '41-60', percent: "" + ageGroup3 + "" },
-                            { name: '61-80', percent: "" + ageGroup4 + "" },
-                            { name: '>80', percent: "" + ageGroup5 + "" }
+                            { name: '>80', percent: "" + ageGroup5 + "" },
+							{ name: '0-10', percent: "" + ageGroup0 + "" },
+							{ name: '61-80', percent: "" + ageGroup4 + "" }
                         ];
-                        var w = 300, h = 300;
+                        var w = 550, h = 550;
                         var radius = (w - 2) / 2;
                         var pie = d3.layout.pie()
                             .value(function (d) { return d.percent })
@@ -326,13 +375,12 @@
                             .innerRadius(0)
                             .outerRadius(radius);
                         var color = d3.scale.ordinal()
-                            .range([rgbToHex(51, 102, 204), rgbToHex(220, 57, 18), rgbToHex(255, 153, 0), rgbToHex(160, 150, 24), rgbToHex(153, 0, 153), rgbToHex(21, 153, 87)]);
+                            .range([ rgbToHex(1, 102, 94), rgbToHex(246, 232, 195), rgbToHex(199,234,229), rgbToHex(216, 179, 101),  rgbToHex(140, 81, 10), rgbToHex(90, 180, 172) ]);
                         var svg = d3.select("#ageChart")
                             .append("svg")
                             .attr({
                                 width: w,
                                 height: h,
-                                class: 'shadow'
                             })
                             .append('g')
                             .attr({
@@ -349,7 +397,7 @@
                                 }
                             })
                             .style({
-                                'fill-opacity': 0.2,
+                                'fill-opacity': .4,
                                 stroke: function (d, i) {
                                     return color(i);
                                 },
@@ -373,16 +421,16 @@
                                 fill: function (d, i) {
                                     return color(i);
                                 },
-                                'font-size': '16px',
+                                'font-size': '18px',
                             });
                     }
-                    function reformat(array, className2) {
+                    function reformat(array, groups) {
                         var data = [];
                         array.map(function (d, i) {
                             data.push({
                                 id: i,
-                                className: d.className,
-                                className1: d.className1,
+                                genderGroup: d.genderGroup,
+                                ageGroup: d.ageGroup,
                                 type: "Feature",
                                 geometry: {
                                     coordinates: [+d.x, +d.y],
@@ -466,7 +514,6 @@
                     MercatorYofLatitude = function (lat) {
                         return (Math.log(Math.tan((90 + lat) * Math.PI / 360)) / (Math.PI / 180)) * 20037508.34 / 180;
                     }
-                    var cscale = d3.scale.linear().domain([1, 3]).range(["#ff0000", "#ff6a00", "#ffd800", "#b6ff00", "#00ffff", "#0094ff"]);//"#00FF00","#FFA500"
                     leafletMap = L.mapbox.map('map').setView([11.57, 11.72], 6);
                     var latlngs = [
         [
@@ -2778,13 +2825,13 @@
                     });
                     d3.csv('pumps.csv', function (data) {
                         data.forEach(function (d) {
-                            L.marker([d.y, d.x], { icon: myIcon }).addTo(leafletMap);
+                            L.marker([d.x, d.y], { icon: myIcon }).addTo(leafletMap);
                         });
                     });
                     var svg = d3.select(leafletMap.getPanes().overlayPane).append("svg").attr("id", "leafletmap");
                     var g = svg.append("g").attr("class", "leaflet-zoom-hide");
                     function projectPoint(x, y) {
-                        var point = leafletMap.latLngToLayerPoint(new L.LatLng(y, x));
+                        var point = leafletMap.latLngToLayerPoint(new L.LatLng(x, y));
                         this.stream.point(point.x, point.y);
                     }
                     var transform = d3.geo.transform({ point: projectPoint });
@@ -2831,13 +2878,13 @@
                             points.attr("d", path);
 
                             points.attr("class", function (d) {
-                                return d.className;
+                                return d.genderGroup;
                             });
                             points.attr("class1", function (d) {
-                                return d.className1;
+                                return d.ageGroup;
                             });
                             points.attr("class2", function (d) {
-                                return d.className;
+                                return d.genderGroup;
                             });
                             points.style("fill-opacity", function (d) {
                                 if (d.group) {
@@ -2855,13 +2902,6 @@
                     }
                 });
             }
-        </script>
-        <style>
-            .leaflet-zoom-animated g path {
-                fill: transparent !important;
-            }
-        </style>
-        <script>
             var margin = { top: 20, right: 50, bottom: 30, left: 50 },
                 width = 420 - margin.left - margin.right,
                 height = 300 - margin.top - margin.bottom;
@@ -2946,106 +2986,5 @@
                 }
             });
         </script>
-        <style>
-            .container { 
-                margin-left: 20px;
-                position: relative;
-                left: 330px;
-                z-index: 1000;
-                font-size: 16px;
-                top: 100px;
-                width: 250px;
-                font-family:serif;
-            }
-            input[type=radio].with-font,
-            input[type=checkbox].with-font {
-                border: 0;
-                clip: rect(0 0 0 0);
-                height: 1px;
-                margin: -1px;
-                overflow: hidden;
-                padding: 0;
-                position: absolute;
-                width: 1px;
-            }
-            input[type=radio].with-font ~ label:before,
-            input[type=checkbox].with-font ~ label:before {
-                font-family: FontAwesome;
-                display: inline-block;
-                content: "\f1db";
-                letter-spacing: 10px;
-                font-size: 1.2em;
-                color: #535353;
-                width: 1.4em;
-            }
-            input[type=radio].with-font:checked ~ label:before,
-            input[type=checkbox].with-font:checked ~ label:before  {
-                content: "\f00c";
-                font-size: 1.2em;
-                color: darkgreen;
-                letter-spacing: 5px;
-            }
-            input[type=checkbox].with-font ~ label:before {        
-                content: "\f096";
-            }
-            input[type=checkbox].with-font:checked ~ label:before {
-                content: "\f046";        
-                color: darkgreen;
-            }
-            input[type=radio].with-font:focus ~ label:before,
-            input[type=checkbox].with-font:focus ~ label:before,
-            input[type=radio].with-font:focus ~ label,
-            input[type=checkbox].with-font:focus ~ label
-            {                
-                color: green;
-            }
-            .chart-container {
-                background-color: white;
-                position: relative;
-                width: 400px;
-                padding: 10px;
-            }
-            #lineChart {
-                top: 40px !important;
-                left: 0px;
-                width: 400px;
-                margin-bottom: 30px;
-                background-color: white;
-            }
-            #lineChart text {
-                fill: black;
-            }
-            #lineChart .axis path,
-            #lineChart .axis line {
-                fill: none;
-                stroke: #000;
-                shape-rendering: crispEdges;
-            }
-            #lineChart .x.axis path {
-                display: none;
-            }
-            #lineChart .line {
-                fill: none;
-                stroke: #a90533;
-                stroke-width: 1.5px;
-            }
-            #lineChart .overlay {
-                fill: none;
-                pointer-events: all;
-            }
-            #lineChart .focus circle {
-                fill: none;
-                stroke: steelblue;
-            }
-            #genderChart svg g path {
-                fill: darkgrey;
-            }
-            #ageChart svg g path {
-                fill: darkgrey;
-            }
-            p {
-                color: black;
-            }
-        </style>
     </body>
 </html>
