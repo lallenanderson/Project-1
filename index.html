@@ -2,138 +2,12 @@
 <html lang="en">
     <head>
         <title>Jon Snow Recreation</title>
+		
         <meta charset="utf-8">
-        <style>
-            body {
-				background-color:orange;
-            }
-            text {
-                fill: white;
-            }
-            svg {
-                position: relative;
-            }
-                path.maleColor {
-                    fill: rgb(239, 138, 98);
-                    fill-opacity: .8;
-                }
-                path.femaleColor {
-                    fill: rgb(103, 169, 207);
-                    fill-opacity: .8;
-                }
-                  path.ageGroup0 {
-                    fill: rgb(140, 81, 10);
-                    fill-opacity: .8;
-                }
-                path.ageGroup1 {
-                    fill: rgb(216, 179, 101);
-                    fill-opacity: .8;
-                }
-                  path.ageGroup2 {
-                    fill: rgb(246, 232, 195);
-                    fill-opacity: .8;
-                }
-                path.ageGroup3 {
-                    fill: 	rgb(199,234,229);
-                    fill-opacity: .8;
-                }
-                  path.ageGroup4 {
-                    fill: rgb(90, 180, 172);
-                    fill-opacity: .8;
-                }
-                path.ageGroup5 {
-                    fill: rgb(1, 102, 94);
-                    fill-opacity: .8;
-                }
-
-            h1 {
-                color: #111;
-                font-weight: bold;
-                line-height: 1.2;
-                letter-spacing: -0.04em;
-                padding-left: 0px;
-                display: block;
-                font-size: 2em;
-                font-family:serif;
-            }
-			#completeMap{
-				position:relative;
-			}
-            #map {
-                height: 900px;
-                width: 1100px;
-                background-color: lightgray;
-			}
-			#mapItems{
-				margin-left: 200px;
-				width: 250px;
-				float: left;
-			}
-			#imageLegend{
-				width:70%;  
-				margin-top: 20px;
-			}
-            #leftPane {
-				margin-bottom:700px;
-            }
-            body {
-              font-family: serif;
-            }
-			.leaflet-zoom-animated g path {
-                fill: transparent !important;
-            }
-			 .container { 
-                font-size: 18px;
-                font-family:serif;
-				margin-top: 80px;
-            }
-            .chart-container {
-				color: white;
-                padding-left: 60px;
-                margin: 10px;
-				width: 400px;
-            	background-color: black;
-				float: left;
-            }
-			#genderChart{
-				margin-top: 30px;
-			}
-			#ageChart{
-				width: 600px;
-			}
-            #lineChart {
-                top: 30px;
-                left: 20px;
-                width: 400px;
-                margin-right: 30px;
-                padding-left: 25px;
-				float: left;
-				position:relative;
-            }
-            #lineChart text {
-                fill: black;
-            }
-            #lineChart .axis path,
-            #lineChart .axis line {
-                fill: none;
-                stroke: blue;
-                shape-rendering: crispEdges;
-            }
-            #lineChart .line {
-                stroke: blue;
-                stroke-width: 1.5px;
-            }
-            #lineChart .overlay {
-                fill: none;
-                pointer-events: all;
-            }
-            #lineChart .focus circle {
-                fill: none;
-                stroke: purple;
-            }
-        </style>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		
+		<link rel="stylesheet" href="style.css"/>
+
         <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
         <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
@@ -152,45 +26,44 @@
         <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v1.0.0/MarkerCluster.Default.css' rel='stylesheet' />
     </head>
     <body>
-        <div id="leftPane">
+        <div id="charts">
             <h1>Jon Snow Recreation &nbsp; &nbsp; &nbsp; Documentation <a href="">click here</a> </h1>
-                <div id="lineChart" ><p>Distribution of number of deaths over a period of time </p></div>
+                <div id="lineChart" ><p>Deaths overtime </p></div>
                 <br/>
-                <div id="genderChart" class="chart-container"  ><p>Percentage of deaths by Gender </p></div>
+                <div id="genderPie" class="chart-box"  ><p>Deaths by Gender </p><img id="genderImg" src='img/genderLegend.png' /></div>
                 <br/>
-                <div id="ageChart" class="chart-container" ><p>Percentage of deaths by Age Group </p></div>
+                <div id="agePie" class="chart-box" ><p>Deaths by Age Group </p> <img id="ageImg" src='img/ageLegend.png' /></div>
+			
         </div>
-		
         <div id="completeMap">
-            
 			<div id="mapItems">
 				<div>
-						<input id="question3" name="mapclustercheck" type="checkbox" class="with-font" value="sel">
-						<label for="question3">View Clusters</label>
+					<input name="mapclusterbutton" type="checkbox" class="with-font" value="sel">
+					<label>View Clusters</label>
 				</div>
-				<div class="container">
-					<div style="">Filters</div> 
+				<div class="filters">
+					<div >Filters</div> 
 					<div>
-						<input checked id="question1" name="question" type="radio" value="sel" />
-						<label for="question1">Gender</label>
+						<input checked id="genderRadio" name="filter" type="radio" value="sel" />
+						<label for="genderRadio">Gender</label>
 					</div>
 					<div >
-						<input id="question2" name="question" type="radio" value="sel" />
-						<label for="question2">Age Groups</label>
+						<input id="ageRadio" name="filter" type="radio" value="sel" />
+						<label for="ageRadio">Age Groups</label>
 					</div>
-					<img id="imageLegend" style='' src='img/maplegend.png' />
+					<img id="imageLegend" src='img/genderLegend.png' />
 				</div>
 			</div>
 			<div id="map">
             </div>
 		</div>
         <script>
-            var boolmapcluster = false;
+            var mapcluster = false;
             var leafletMap;
             $(document).ready(function () {
                 renderMap();
-                $("input[name='question']").on("change", function () {
-                    if (this.id === "question1")
+                $("input[name='filter']").on("change", function () {
+                    if (this.id === "genderRadio")
                     {
                         $("#leafletmap g path").each(function (d, i) {
                             $(i)
@@ -203,9 +76,9 @@
                                 })
                          .removeAttr('class2');
                         });
-                        $("#imageLegend").attr("src","img/maplegend.png");
+                        $("#imageLegend").attr("src","img/genderLegend.png");
                     }
-                    else if (this.id === "question2") {
+                    else if (this.id === "ageRadio") {
                         $("#leafletmap g path").each(function (d,i) {
                             $(i)
                                 .attr({
@@ -217,20 +90,20 @@
                             })
                          .removeAttr('class1');
                         });
-                        $("#imageLegend").attr("src","img/legend2.png");
+                        $("#imageLegend").attr("src","img/ageLegend.png");
                     }
                 });
-                $("input[name='mapclustercheck']").on("change", function () {
-                    boolmapcluster = this.checked;
-                    $("#ageChart svg").remove();
-                    $("#genderChart svg").remove();
+                $("input[name='mapclusterbutton']").on("change", function () {
+                    mapcluster = this.checked;
+                    $("#agePie svg").remove();
+                    $("#genderPie svg").remove();
                     leafletMap.remove();
                     renderMap();
                     if (this.checked) {
-                        $(".container").hide();
+                        $(".filters").hide();
                     }
                     else {
-                        $(".container").show();
+                        $(".filters").show();
                     }
                 });
             });
@@ -306,7 +179,7 @@
                             .outerRadius(radius);
                         var color = d3.scale.ordinal()
                         .range(['#ef8a62', '#67a9cf']);
-                        var svg = d3.select("#genderChart")
+                        var svg = d3.select("#genderPie")
                             .append("svg")
                             .attr({
                                 width: w,
@@ -376,7 +249,7 @@
                             .outerRadius(radius);
                         var color = d3.scale.ordinal()
                             .range([ rgbToHex(1, 102, 94), rgbToHex(246, 232, 195), rgbToHex(199,234,229), rgbToHex(216, 179, 101),  rgbToHex(140, 81, 10), rgbToHex(90, 180, 172) ]);
-                        var svg = d3.select("#ageChart")
+                        var svg = d3.select("#agePie")
                             .append("svg")
                             .attr({
                                 width: w,
@@ -2819,7 +2692,7 @@
                         var polyline = L.polyline(d, { color: '#29342D' }).addTo(leafletMap);
                     });
                     var myIcon = L.icon({
-                        iconUrl: 'waterpump.png',
+                        iconUrl: 'img/waterpump.png',
                         iconSize: [38, 60],
                         iconAnchor: [22, 60]
                     });
@@ -2856,8 +2729,8 @@
                         }
                         leafletMap.addLayer(markers);          
                     }
-                    function redrawSubset(subset, boolmapcluster) {
-                        if (boolmapcluster) { showclustering(subset, boolmapcluster); }
+                    function redrawSubset(subset, mapcluster) {
+                        if (mapcluster) { showclustering(subset, mapcluster); }
                         else {
                             path.pointRadius(3);// * scale);
                             var bounds = path.bounds({ type: "FeatureCollection", features: subset });
@@ -2898,7 +2771,7 @@
                         var mapBounds = leafletMap.getBounds();
                         var subset = search(qtree, mapBounds.getWest(), mapBounds.getSouth(), mapBounds.getEast(), mapBounds.getNorth());
                         console.log("subset: " + subset.length);
-                        redrawSubset(subset, boolmapcluster);
+                        redrawSubset(subset, mapcluster);
                     }
                 });
             }

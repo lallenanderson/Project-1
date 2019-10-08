@@ -1,0 +1,126 @@
+            body {
+				background-color:orange;
+            }
+                path.maleColor {
+                    fill: rgb(239, 138, 98);
+                    fill-opacity: .8;
+                }
+                path.femaleColor {
+                    fill: rgb(103, 169, 207);
+                    fill-opacity: .8;
+                }
+                  path.ageGroup0 {
+                    fill: rgb(140, 81, 10);
+                    fill-opacity: .8;
+                }
+                path.ageGroup1 {
+                    fill: rgb(216, 179, 101);
+                    fill-opacity: .8;
+                }
+                  path.ageGroup2 {
+                    fill: rgb(246, 232, 195);
+                    fill-opacity: .8;
+                }
+                path.ageGroup3 {
+                    fill: 	rgb(199,234,229);
+                    fill-opacity: .8;
+                }
+                  path.ageGroup4 {
+                    fill: rgb(90, 180, 172);
+                    fill-opacity: .8;
+                }
+                path.ageGroup5 {
+                    fill: rgb(1, 102, 94);
+                    fill-opacity: .8;
+                }
+
+            h1 {
+                color: black;
+                font-weight: bold;
+                font-size: 35px;
+            }
+			#completeMap{
+				position:relative;
+			}
+            #map {
+                height: 900px;
+                width: 1100px;
+                background-color: lightgray;
+				border: 5px;
+				border-style: solid;
+				border-color: black;
+			}
+			#mapItems{
+				background-color: lightgray;
+				margin-left: 250px;
+				width: 200px;
+				padding-left: 5px;
+				float: left;
+				border: 5px;
+				border-style: solid;
+			}
+			#imageLegend{
+				width:70%;  
+				margin-top: 20px;
+			}
+            #charts {
+				margin-bottom:700px;
+            }
+			 .filters { 
+                font-size: 18px;
+				margin-top: 80px;
+            }
+            .chart-box {
+				color: white;
+				font-size: 20px;
+                padding-left: 20px;
+                margin: 10px;
+            	background-color: black;
+				float: left;
+				border: 5px;
+				border-style: solid;
+				border-color: white;
+            }
+			#genderPie{
+				margin-top: 30px;
+				width: 500px;
+			}
+			#genderImg{
+				width: 25%
+			}
+			#agePie{
+				width: 700px;
+			}
+			#ageImg{
+				width: 20%
+			}
+            #lineChart {
+                left: 20px;
+                width: 400px;
+                margin-right: 30px;
+				margin-top: 50px;
+                padding-left: 25px;
+				float: left;
+				position:relative;
+				border: 5px;
+				border-style: solid;
+				border-color: black;
+            }
+
+            #lineChart .axis path,
+            #lineChart .axis line {
+                fill: none;
+                stroke: blue;
+                shape-rendering: crispEdges;
+            }
+            #lineChart .line {
+                stroke: blue;
+                stroke-width: 1.5px;
+            }
+            #lineChart .overlay {
+                fill: none;
+                pointer-events:all;
+            }
+            #lineChart .focus circle {
+                stroke: purple;
+            }
