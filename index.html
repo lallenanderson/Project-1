@@ -27,7 +27,7 @@
     </head>
     <body>
         <div id="charts">
-            <h1>Jon Snow Recreation &nbsp; &nbsp; &nbsp; Documentation <a href="">click here</a> </h1>
+            <h1>Jon Snow Viz Recreation by Luke Anderson &nbsp; &nbsp; &nbsp;  <a href="documentation.html">Project 1 Documentation</a> &nbsp; &nbsp;  <a href="https://www.youtube.com/">Youtube Video</a> </h1>
                 <div id="lineChart" ><p>Deaths overtime </p></div>
                 <br/>
                 <div id="genderPie" class="chart-box"  ><p>Deaths by Gender </p><img id="genderImg" src='img/genderLegend.png' /></div>
@@ -178,7 +178,7 @@
                             .innerRadius(0)
                             .outerRadius(radius);
                         var color = d3.scale.ordinal()
-                        .range(['#ef8a62', '#67a9cf']);
+                        .range(['#b35806', '#542788']);
                         var svg = d3.select("#genderPie")
                             .append("svg")
                             .attr({
@@ -248,7 +248,7 @@
                             .innerRadius(0)
                             .outerRadius(radius);
                         var color = d3.scale.ordinal()
-                            .range([ rgbToHex(1, 102, 94), rgbToHex(246, 232, 195), rgbToHex(199,234,229), rgbToHex(216, 179, 101),  rgbToHex(140, 81, 10), rgbToHex(90, 180, 172) ]);
+                            .range([ rgbToHex(252,141,89), rgbToHex(254,224,144), rgbToHex(224,243,248), rgbToHex(69,117,180),  rgbToHex(215,48,39), rgbToHex(145,191,219) ]);
                         var svg = d3.select("#agePie")
                             .append("svg")
                             .attr({

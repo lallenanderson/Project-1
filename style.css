@@ -1,51 +1,62 @@
-            body {
-				background-color:orange;
-            }
-                path.maleColor {
-                    fill: rgb(239, 138, 98);
-                    fill-opacity: .8;
-                }
-                path.femaleColor {
-                    fill: rgb(103, 169, 207);
-                    fill-opacity: .8;
-                }
-                  path.ageGroup0 {
-                    fill: rgb(140, 81, 10);
-                    fill-opacity: .8;
-                }
-                path.ageGroup1 {
-                    fill: rgb(216, 179, 101);
-                    fill-opacity: .8;
-                }
-                  path.ageGroup2 {
-                    fill: rgb(246, 232, 195);
-                    fill-opacity: .8;
-                }
-                path.ageGroup3 {
-                    fill: 	rgb(199,234,229);
-                    fill-opacity: .8;
-                }
-                  path.ageGroup4 {
-                    fill: rgb(90, 180, 172);
-                    fill-opacity: .8;
-                }
-                path.ageGroup5 {
-                    fill: rgb(1, 102, 94);
-                    fill-opacity: .8;
-                }
-
+			body {
+			background-color:orange;
+			}
+			path.maleColor {
+				fill: rgb(179,88,6);
+				fill-opacity: .9;
+			}
+			path.femaleColor {
+				fill: rgb(84,39,136);
+				fill-opacity: .9;
+			}
+			  path.ageGroup0 {
+				fill: rgb(215,48,39);
+				fill-opacity: .9;
+			}
+			path.ageGroup1 {
+				fill: rgb(252,141,89);
+				fill-opacity: .9;
+			}
+			  path.ageGroup2 {
+				fill: rgb(254,224,144);
+				fill-opacity: .9;
+			}
+			path.ageGroup3 {
+				fill: 	rgb(224,243,248);
+				fill-opacity: .9;
+			}
+			  path.ageGroup4 {
+				fill: rgb(145,191,219);
+				fill-opacity: .9;
+			}
+			path.ageGroup5 {
+				fill: rgb(69,117,180);
+				fill-opacity: .9;
+			}
             h1 {
                 color: black;
                 font-weight: bold;
                 font-size: 35px;
             }
+			.color{
+				width:400px;
+				height:200px;
+			}
+			.otherImg{
+				width:400px;
+				height: 300px;
+			}
+			#snow{
+				width:700px; 
+				height:300px;
+			}
 			#completeMap{
 				position:relative;
 			}
             #map {
                 height: 900px;
                 width: 1100px;
-                background-color: lightgray;
+                background-color: lightgrey;
 				border: 5px;
 				border-style: solid;
 				border-color: black;
